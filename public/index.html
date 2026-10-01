@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f6fb" />
+    <title>Node.js — обмен сообщениями</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Сообщения, на главную">
+          <span class="brand-mark">✳</span>
+          <span>Сообщения<span class="brand-dot">.</span></span>
+        </a>
+        <div class="stack-badge"><span class="status-dot"></span> Только Node.js</div>
+      </header>
+
+      <section class="intro">
+        <div class="eyebrow"><span></span> ДЕМО-ПРИЛОЖЕНИЕ</div>
+        <h1>Сообщение принято.<br /><span>Пока работает сервер.</span></h1>
+        <p>Введите текст слева — и он появится справа вместе с именем отправителя и временем получения.</p>
+      </section>
+
+      <div class="alert" id="error" role="alert" hidden></div>
+
+      <section class="workspace" aria-label="Обмен сообщениями">
+        <article class="panel compose-panel">
+          <div class="panel-heading">
+            <div class="step-number">01</div>
+            <div><h2>Новое сообщение</h2><p>Отправка в общую ленту</p></div>
+          </div>
+          <form id="message-form">
+            <label for="sender">Ваше имя</label>
+            <input id="sender" name="sender" placeholder="Например, Анна" maxlength="60" required />
+            <label for="message">Текст сообщения</label>
+            <textarea id="message" name="text" placeholder="Напишите что-нибудь..." maxlength="2000" rows="6" required></textarea>
+            <div class="form-footer">
+              <span id="counter">0 / 2000</span>
+              <button id="submit" type="submit">Отправить <span aria-hidden="true">↗</span></button>
+            </div>
+          </form>
+          <div class="privacy-note"><span>⌑</span> Сообщения хранятся в памяти Node.js</div>
+        </article>
+
+        <article class="panel feed-panel">
+          <div class="panel-heading feed-heading">
+            <div class="step-number step-number-purple">02</div>
+            <div><h2>Полученные</h2><p>Обновление автоматически</p></div>
+            <span class="live-indicator"><span></span> LIVE</span>
+          </div>
+          <div class="message-list" id="message-list" aria-live="polite">
+            <div class="empty-state">
+              <div class="empty-icon">↙</div>
+              <strong>Здесь пока тихо</strong>
+              <span>Отправьте первое сообщение<br />из панели слева</span>
+            </div>
+          </div>
+          <div class="feed-footer"><span class="feed-dot"></span><span id="message-count">0 сообщений в ленте</span></div>
+        </article>
+      </section>
+      <footer class="page-footer">
+        <span>Перезапуск Node.js очистит сообщения</span>
+        <span>Локальный демо-сервис <b>♥</b></span>
+      </footer>
+    </main>
+  </body>
+</html>
